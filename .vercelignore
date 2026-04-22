@@ -1,0 +1,19 @@
+# Vercel 忽略文件
+node_modules/
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+.env
+.env.*
+*.log
+*.cache
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+.DS_Store
+Thumbs.db
+/.idea
+/.vscode
+*.swp
+*.swo
