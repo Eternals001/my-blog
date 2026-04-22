@@ -5,7 +5,6 @@
  */
 
 import Alpine from 'alpinejs';
-import Livewire from 'livewire';
 import './bootstrap.js';
 
 /**
@@ -143,7 +142,7 @@ Alpine.store('toast', {
     remove(id) {
         this.notifications = this.notifications.filter(n => n.id !== id);
     }
-}));
+});
 
 Alpine.start();
 

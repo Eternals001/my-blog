@@ -2,9 +2,6 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import path from 'path';
 
-/**
- * Vite 配置文件
- */
 export default defineConfig({
     plugins: [
         laravel({
@@ -16,7 +13,6 @@ export default defineConfig({
                 'vendor/livewire/livewire/dist/**/*.js',
                 'resources/views/**/*.php',
                 'resources/views/**/*.blade.php',
-                'app/Livewire/**/*.php',
             ],
         }),
     ],
@@ -24,7 +20,6 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'resources'),
-            '@resources': path.resolve(__dirname, 'resources'),
         },
     },
     
@@ -33,36 +28,6 @@ export default defineConfig({
     },
     
     build: {
-        assetsDir: 'assets',
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    'alpine': ['alpinejs'],
-                },
-            },
-        },
-        minify: 'terser',
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-            },
-        },
-    },
-    
-    server: {
-        port: 5173,
-        host: true,
-        https: false,
-        proxy: {
-            '/api': {
-                target: process.env.APP_URL || 'http://localhost',
-                changeOrigin: true,
-            },
-        },
-    },
-    
-    preview: {
-        port: 4173,
+        minify: false,
     },
 });
