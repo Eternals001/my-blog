@@ -1,0 +1,28 @@
+{
+  "$schema": "https://railway.app/railway-schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "composer install --no-dev --optimize-autoloader --no-scripts",
+    "startCommand": "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"
+  },
+  "deploy": {
+    "numReplicas": 1,
+    "sleep": false,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyLimit": 10
+  },
+  "healthcheckPath": "/",
+  "proxy": {
+    "port": 8080,
+    "enabled": true
+  },
+  "variables": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "LOG_CHANNEL": "stderr",
+    "LOG_LEVEL": "info",
+    "SESSION_DRIVER": "database",
+    "CACHE_DRIVER": "database",
+    "QUEUE_CONNECTION": "sync"
+  }
+}
