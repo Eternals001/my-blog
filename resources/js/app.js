@@ -107,7 +107,7 @@ Alpine.data('tabs', (initialTab = null) => ({
         }
     },
     
-    switch(tab) {
+    switchTab(tab) {
         this.activeTab = tab;
         
         // 触发 tab 切换事件
